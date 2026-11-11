@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>จอนำเสนอ — HUSOC Live Chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="screenPage">
+<div class="scrCtl">
+  <button class="fsBtn" id="sndBtn">🔇 กดเพื่อเปิดเสียง</button>
+  <button class="fsBtn" id="fsBtn">⛶ เต็มจอ</button>
+</div>
+<div class="screenWrap" id="screenWrap">
+  <div class="stage" id="stage">
+    <div class="sHead">
+      <div class="sLogo">HU</div>
+      <div><div class="sTitle" id="sTitle"></div><div class="sSub">แชทคอมเมนต์สด · คณะมนุษยศาสตร์และสังคมศาสตร์ มหาวิทยาลัยมหาสารคาม</div></div>
+      <div class="live"><i></i>LIVE</div>
+    </div>
+    <div class="sClosed" id="sClosed" hidden>⏸ ปิดรับข้อความชั่วคราว</div>
+    <div class="sMain">
+      <div class="sLeft"><div id="sPin"></div><div class="sBody" id="sBody"></div></div>
+      <div class="qrCard">
+        <h3 id="qrHead">สแกนเพื่อคอมเมนต์</h3>
+        <div class="qrBox" id="qrBox"></div>
+        <div class="qrCode">รหัสห้อง<b id="sCode"></b></div>
+        <div class="qrUrl" id="sUrl"></div>
+      </div>
+    </div>
+    <div class="sFoot"><span id="sStats"></span><span>💜 มนุษย์ยิ่งอยู่ยิ่งใหญ่</span></div>
+    <div class="qrMini"><div id="qrMiniBox"></div><span id="qrMiniTx">สแกนเพื่อคอมเมนต์</span><b id="sCode2"></b></div>
+    <div class="sEmoji" id="sEmoji"></div>
+  </div>
+  <div class="sndHint" id="sndHint" hidden>🔇 แตะจอ 1 ครั้งเพื่อเปิดเสียง</div>
+</div>
+<div class="msgBox" id="msg"><div><h2>กำลังเชื่อมต่อ…</h2><p id="msgSub"></p></div></div>
+<script type="module" src="assets/screen.js"></script>
+</body>
+</html>
