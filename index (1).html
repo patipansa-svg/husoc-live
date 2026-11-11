@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>HUSOC Live Chat</title>
+<meta name="theme-color" content="#361161">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="phonePage">
+<div class="phone full" id="phone">
+
+  <!-- ใส่รหัสห้อง (กรณีไม่ได้สแกน QR) -->
+  <div class="pJoin" id="pCode" hidden>
+    <div class="lg">HU</div>
+    <h2>HUSOC Live Chat</h2>
+    <p>ใส่รหัสห้องที่แสดงบนจอ</p>
+    <input class="inp codeIn" id="pCodeIn" maxlength="8" autocomplete="off" placeholder="รหัสห้อง">
+    <button class="btn full" id="pCodeGo">เข้าห้อง</button>
+    <div class="err" id="pCodeErr"></div>
+    <a class="adminLink" href="admin.html">🔑 สำหรับแอดมิน · เข้าสู่ระบบเพื่อสร้างห้อง</a>
+  </div>
+
+  <!-- กำลังโหลด / ไม่พบห้อง -->
+  <div class="pJoin" id="pLoad"><div class="lg">HU</div><h2 id="pLoadMsg">กำลังเชื่อมต่อ…</h2><p id="pLoadSub"></p><a class="adminLink" href="admin.html">🔑 สำหรับแอดมิน · เข้าสู่ระบบเพื่อสร้างห้อง</a></div>
+
+  <!-- ใส่ชื่อเล่น -->
+  <div class="pJoin" id="pJoin" hidden>
+    <div class="lg">HU</div>
+    <h2 id="pjTitle"></h2>
+    <p>ใส่ชื่อเล่นเพื่อเริ่มคอมเมนต์</p>
+    <input class="inp" id="pName" maxlength="20" placeholder="ชื่อเล่นของคุณ" autocomplete="off">
+    <button class="btn full" id="pJoinBtn">เข้าร่วม</button>
+  </div>
+
+  <div id="pMain" hidden style="flex-direction:column;flex:1;min-height:0">
+    <div class="pHead"><div class="t" id="pTitle"></div><div class="h">สวัสดี <b id="pMe"></b> · <a id="pRename">เปลี่ยนชื่อ</a></div></div>
+    <div class="pTabs"><button data-pt="comment" class="on">💬 คอมเมนต์</button><button data-pt="wc" id="pTabWc" hidden>☁️ ตอบคำถาม</button><button data-pt="qa">🙋 ถามวิทยากร</button></div>
+    <div class="pBody">
+      <div class="pClosed" id="pClosed" hidden>⏸ ตอนนี้ปิดรับข้อความชั่วคราว</div>
+      <div id="ptComment">
+        <div class="pNote">ข้อความจะขึ้นจอใหญ่ทันที กรุณาใช้ถ้อยคำสุภาพ 🙏</div>
+        <div class="emoRow" id="emoRow"></div>
+        <textarea class="inp" id="pText" maxlength="120" placeholder="พิมพ์คอมเมนต์…"></textarea>
+        <div class="cnt"><span id="pCnt">0</span>/120</div>
+        <button class="btn full" id="pSend">ส่งขึ้นจอ</button>
+        <div class="mine"><h4>ข้อความของฉัน</h4><div id="pMine"><div class="empty" style="padding:10px">ยังไม่มีข้อความ</div></div></div>
+      </div>
+      <div id="ptWc" hidden>
+        <div class="wcAsk" id="pWcQ"></div>
+        <div class="wcIn">
+          <input class="inp" maxlength="20" placeholder="คำที่ 1" data-wc>
+          <input class="inp" maxlength="20" placeholder="คำที่ 2 (ไม่บังคับ)" data-wc>
+          <input class="inp" maxlength="20" placeholder="คำที่ 3 (ไม่บังคับ)" data-wc>
+        </div>
+        <button class="btn full" id="pWcSend">ส่งคำตอบ</button>
+        <div class="wcMine" id="pWcMine" hidden></div>
+        <div class="pNote" style="margin-top:12px">พิมพ์ช่องละ 1 คำหรือวลีสั้น ๆ · คำที่หลายคนตอบตรงกันจะตัวใหญ่ขึ้นบนจอ · ส่งใหม่ได้ (แทนที่คำตอบเดิม)</div>
+      </div>
+      <div id="ptQa" hidden>
+        <textarea class="inp" id="pQ" maxlength="150" placeholder="พิมพ์คำถามถึงวิทยากร…"></textarea>
+        <button class="btn full" id="pAsk">ส่งคำถาม</button>
+        <div class="qList"><h4>คำถามทั้งหมด · กด 👍 คำถามที่อยากให้ตอบ</h4><div id="pQList"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+</div>
+<script type="module" src="phone.js"></script>
+</body>
+</html>
